@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: joomla
+      MYSQL_USER: joomla
+      MYSQL_PASSWORD: password
+    volumes:
+      - joomla-db:/var/lib/mysql
+  web:
+    image: joomla
+    links:
+      - db
+    ports:
+      - 80:80
+    volumes:
+      - joomla-web:/var/www/html
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 8080:80
+volumes:
+  joomla-db:
+  joomla-web:
