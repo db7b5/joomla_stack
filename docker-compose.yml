@@ -7,6 +7,8 @@ services:
       MYSQL_DATABASE: joomla
       MYSQL_USER: joomla
       MYSQL_PASSWORD: password
+      JOOMLA_DB_HOST=mysql:3306
+      JOOMLA_DB_PASSWORD=12345678
     volumes:
       - joomla-db:/var/lib/mysql
   web:
