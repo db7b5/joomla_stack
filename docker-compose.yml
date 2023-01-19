@@ -16,7 +16,7 @@ services:
     ports:
       - 80:80
     environment:
-     - JOOMLA_DB_HOST=mysql:3306
+     - JOOMLA_DB_HOST=db:3306
      - JOOMLA_DB_PASSWORD=12345678
     volumes:
       - joomla-web:/var/www/html
@@ -25,7 +25,7 @@ services:
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: 12345678
     ports:
       - 8080:80
 volumes:
